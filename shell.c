@@ -1,8 +1,4 @@
 // BY: DAVID KRLJANOVIC
-// SID: 301427415
-// DATE: 2024, JUNE 7th
-// CMPT 300 - Assignment 1
-
 
 // Shell starter file
 // You may make any changes to any part of this file.
@@ -587,8 +583,7 @@ int main(int argc, char* argv[])
 		write(STDOUT_FILENO, currDir, strlen(currDir));
 		_Bool in_background = false;
 
-        // this block is straight from the "Guide to Using Signals"
-        // found at: https://www.cs.sfu.ca/~tzwang/teaching/cmpt300-summer24/assignments/a1/GuideToSignals.pdf
+	// Signal Handling
         struct sigaction handler; 
         handler.sa_handler = handle_SIGINT;
         handler.sa_flags = 0; 
@@ -614,24 +609,7 @@ int main(int argc, char* argv[])
         }
         
         while (waitpid(-1, NULL, WNOHANG) > 0); // do nothing.
-		// DEBUG: Dump out arguments:
-		// for (int i = 0; tokens[i] != NULL; i++) {
-		// 	write(STDOUT_FILENO, "   Token: ", strlen("   Token: "));
-		// 	write(STDOUT_FILENO, tokens[i], strlen(tokens[i]));
-		// 	write(STDOUT_FILENO, "\n", strlen("\n"));
-		// }
-		// if (in_background) {
-		// 	write(STDOUT_FILENO, "Run in background.", strlen("Run in background."));
-		// }
-
-		/**
-		 * Steps For Basic Shell:
-		 * 1. Fork a child process
-		 * 2. Child process invokes execvp() using results in token array.
-		 * 3. If in_background is false, parent waits for
-		 *    child to finish. Otherwise, parent loops back to
-		 *    read_command() again immediately.
-		 */
+		
 
         
 	}
