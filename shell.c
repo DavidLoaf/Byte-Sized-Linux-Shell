@@ -1,8 +1,5 @@
 // BY: DAVID KRLJANOVIC
 
-// Shell starter file
-// You may make any changes to any part of this file.
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
